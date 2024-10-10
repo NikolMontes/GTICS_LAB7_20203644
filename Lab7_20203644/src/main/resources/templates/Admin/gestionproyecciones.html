@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-template="vertical-menu-template-free"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security
+
+>
+<head>
+  <meta charset="utf-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+  />
+
+  <title>Inicio Agente</title>
+
+  <meta name="description" content="" />
+
+
+</head>
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+  <div class="layout-container">
+    <!-- Menu -->
+
+    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+      <!-- Contenedor para la imagen centrada -->
+
+
+      <div class="menu-inner-shadow"></div>
+
+      <ul class="menu-inner py-1">
+        <!-- Dashboard -->
+        <li class="menu-item active">
+          <a href="/gestion/salas" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+            <div data-i18n="Salas">Salas</div>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="/gestion/peliculas" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="Peliculas">Peliculas</div>
+          </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="/gestion/proyecciones" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-chat"></i>
+              <div data-i18n="Proyecciones">Proyecciones</div>
+            </a>
+          </li>
+        
+        <!--
+        <li class="menu-header small text-uppercase">
+          <span class="menu-header-text">Páginas</span>
+        </li>-->
+      </ul>
+    </aside>
+    <!-- / Menu -->
+    <!-- Layout container -->
+    <div class="layout-page">
+      <!-- Navbar -->
+
+      <nav
+              class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+              id="layout-navbar"
+      >
+        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+          <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+          </a>
+        </div>
+
+        <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
+
+          <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <!-- Place this tag where you want the button to render. -->
+
+            <!-- User -->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+              <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                <div class="avatar avatar-online">
+                  <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                </div>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="/agente/perfil_agente">
+                    <div class="d-flex">
+                      <div class="flex-shrink-0 me-3">
+                        <div class="avatar avatar-online">
+                          <img src="/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                        </div>
+                      </div>
+                      <div class="flex-grow-1">
+                        
+                        <span class="fw-semibold d-block">Bienvenido </span>
+                        <small class="text-muted">ADMIN</small>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+
+
+                <li sec:authorize="isAuthenticated()">
+                  <div class="dropdown-divider"></div>
+                </li>
+                <li sec:authorize="isAuthenticated()">
+                  <form th:action="@{/logoutall}" method="post">
+                    <button type="submit" class="dropdown-item">
+                      <i class="bx bx-power-off me-2"></i>
+                      <span class="align-middle">Cerrar Sesión</span>
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </li>
+            <!--/ User -->
+          </ul>
+        </div>
+      </nav>
+
+      <!-- / Navbar -->
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+        <!-- Aquí se agrega el contenido central -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <div class="card">
+            <div class="card-body">
+
+              <h4 style="font-family: 'Poppins', sans-serif; color: #7367F0; font-weight: bold; padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 1rem; text-align: center; font-size: 40px;">
+                ¡Bienvenido agente!
+              </h4>
+
+              <!-- Añadimos margen superior al segundo h4 -->
+              <h4 class="mb-2" style="margin-top: 20px; margin-bottom: -20px; font-size: 20px; font-family: 'Poppins', sans-serif; font-weight: 100">
+                En esta sección, podrás ver algunas funciones que puedes realizar como agente.
+              </h4>
+
+              <!-- Contenedor flexbox para alinear el texto y la imagen -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -60px">
+                <!-- Banner con el texto de funciones a la izquierda -->
+                <div style="background-color: #6DC8C2; padding: 20px; border-radius: 10px; width: 60%;">
+                  <p style="font-size:20px; color: white; font-family: 'Poppins', sans-serif; font-weight: 100;">
+                    Funciones:
+                    <br>1. Ver lista de todos los usuarios.
+                    <br>2. Poder banear a los usuarios.
+                    <br>3. Chatear con los usuarios
+                    <br>4. Responder dudas de los usuarios
+                  </p>
+                </div>
+                <!-- Imagen alineada a la derecha -->
+                <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+                <img src="/assets/img/agente/inicio_agente.png" alt="Imagen" style="width: 400px; margin-left: 20px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Aquí termina el contenido central -->
+
+    </div>
+    <!-- / Layout page -->
+  </div>
+
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="/assets/vendor/libs/popper/popper.js"></script>
+<script src="/assets/vendor/js/bootstrap.js"></script>
+<script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="/assets/js/dashboards-analytics.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
